@@ -180,6 +180,71 @@
          </div>
     </div>
 
+    <div id="subscribers" class="hidden">
+        <h2>Subscriber's Data</h2>
+        
+        <!-- Search Bar -->
+        <div class="input-group mb-2">
+            <input type="text" id="searchBox" class="form-control" placeholder="Search by Name or Designation">
+            <button class="btn btn-primary" onclick="searchSubscribers()">Search</button>
+        </div>
+    
+        <!-- Subscriber's Data Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Subscription</th>
+                </tr>
+            </thead>
+            <tbody id="subscribersTable">
+                <!-- Subscriber Data Will Load Here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        async function loadSubscribers() {
+            try {
+                const response = await fetch("data-mess-200-users.json");
+                const data = await response.json();
+                let tableBody = document.getElementById("subscribersTable");
+                tableBody.innerHTML = "";
+    
+                data.forEach(user => {
+                    let row = `<tr>
+                        <td>${user.name}</td>
+                        <td>${user.designation}</td>
+                        <td>${user.subscription}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error("Error loading subscribers:", error);
+            }
+        }
+    
+        function searchSubscribers() {
+            let filter = document.getElementById("searchBox").value.toLowerCase();
+            let table = document.getElementById("subscribersTable");
+            let rows = document.getElementById("subscribersTable").getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+            let name = rows[i].cells[0]?.textContent.toLowerCase();
+            let designation = rows[i].cells[1]?.textContent.toLowerCase();
+        
+            if (name.includes(filter) || designation.includes(filter)) {
+            rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+                }       
+            }
+        }
+
+    </script>
+    
+
     
 
 
