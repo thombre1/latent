@@ -3,116 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Explore Page</title>
+    <link rel="icon" type="image/x-icon" href="../icons/snaplearn-128p.png">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <header class="bg-white shadow-md p-4 flex justify-between items-center">
-        <div class="text-xl font-bold">Logo</div>
-        <a href="./admin.html"><button class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">Admin Control</button></a>
-    </header>
+<body class="bg-gradient-to-r from-neutral-950 to-neutral-900 text-white">
     
-    <nav class="bg-blue-600 p-3 flex justify-center space-x-4 shadow-md">
-        <button class="text-white px-4 py-2 rounded hover:bg-blue-700">Home</button>
-        <button class="text-white px-4 py-2 rounded hover:bg-blue-700">Search</button>
-        <button class="text-white px-4 py-2 rounded hover:bg-blue-700">Profile</button>
-    </nav>
-    
-    <div class="container mx-auto mt-6 p-4">
-        <div class="grid gap-6">
-            <div class="section">
-                <h2 class="text-2xl font-semibold mb-4">Explore More</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="card bg-white shadow-md p-6 rounded-lg">Card 1</div>
-                    <div class="card bg-white shadow-md p-6 rounded-lg">Card 2</div>
-                    <div class="card bg-white shadow-md p-6 rounded-lg">Card 3</div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="text-2xl font-semibold mb-4">Trending</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="card bg-white shadow-md p-6 rounded-lg">Card 1</div>
-                    <div class="card bg-white shadow-md p-6 rounded-lg">Card 2</div>
-                    <div class="card bg-white shadow-md p-6 rounded-lg">Card 3</div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="text-2xl font-semibold mb-4">Previously Visited</h2>
+    <div id="head-image" class="flex justify-between items-center p-4">
+        <a href="./main.html">
+            <img src="../icons/transparent-messmaster.png" alt="Logo" class="w-28 sm:w-24">
+        </a>
+        <p class="text-sm sm:text-base font-mono">Managing Food: made Easy</p>
+    </div>
 
-                <!-- card start -->
-                <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
-                    <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                      <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="card-image" />
-                    </div>
-                    <div class="p-4">
-                      <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-                        Website Review Check
-                      </h6>
-                      <p class="text-slate-600 leading-normal font-light">
-                        The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                        and near to &quot;Naviglio&quot; where you can enjoy the main night life in
-                        Barcelona.
-                      </p>
-                    </div>
-                    <div class="px-4 pb-4 pt-0 mt-2">
-                      <button class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-                        Read more
-                      </button>
-                    </div>
-                  </div>
-                  <!-- card end-->
-                   
-                <!-- card start -->
-                <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
-                    <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                      <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="card-image" />
-                    </div>
-                    <div class="p-4">
-                      <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-                        Website Review Check
-                      </h6>
-                      <p class="text-slate-600 leading-normal font-light">
-                        The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                        and near to &quot;Naviglio&quot; where you can enjoy the main night life in
-                        Barcelona.
-                      </p>
-                    </div>
-                    <div class="px-4 pb-4 pt-0 mt-2">
-                      <button class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-                        Read more
-                      </button>
-                    </div>
-                  </div>
-                  <!-- card end-->
+    <div class="container mx-auto p-4">
+        <!-- Tabs -->
+        <div class="bg-neutral-800 flex justify-around p-4 rounded shadow-md mb-4 flex-wrap gap-2">
+            <button class="text-blue-400 font-semibold hover:cursor-pointer">Home</button>
+            <a href="./admin.html"><button class="hover:cursor-pointer" onclick="navigateTo('admin.html')">Admin</button></a>
+            <button class="hover:cursor-pointer" onclick="navigateTo('profile.html')">Profile</button>
+        </div>
 
-                <!-- card start -->
-                <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
-                    <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                      <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="card-image" />
-                    </div>
-                    <div class="p-4">
-                      <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-                        Website Review Check
-                      </h6>
-                      <p class="text-slate-600 leading-normal font-light">
-                        The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                        and near to &quot;Naviglio&quot; where you can enjoy the main night life in
-                        Barcelona.
-                      </p>
-                    </div>
-                    <div class="px-4 pb-4 pt-0 mt-2">
-                      <button class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-                        Read more
-                      </button>
-                    </div>
-                  </div>
-                  <!-- card end-->
+        <!-- Results Section -->
+        <div id="resultsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-slate-700"></div>
 
-
+        <!-- Resume Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Continue Searching For</h2>
+            <div class="p-4 rounded shadow-md">
+                <iframe class="w-full h-60 sm:h-80" src="https://www.youtube.com/embed/xyQY8a-ng6g" frameborder="0" allowfullscreen></iframe>
+                <p class="text-blue-400">How food you eat affects your brain</p>
             </div>
         </div>
+
+        <!-- Explore Community Learnings Section -->
+        <h2 class="text-2xl font-semibold mb-4">Explore Community Learnings</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded shadow-md">
+                <iframe class="w-full h-60" src="https://www.youtube.com/embed/0g1uOi8K0mI" frameborder="0" allowfullscreen></iframe>
+                <p class="text-blue-400">Healthy Food Alternatives</p>
+            </div>
+            <div class="p-4 rounded shadow-md">
+                <iframe class="w-full h-60" src="https://www.youtube.com/embed/lEXBxijQREo" frameborder="0" allowfullscreen></iframe>
+                <p class="text-blue-400">How sugar affects the brain</p>
+            </div>
+            <div class="p-4 rounded shadow-md">
+                <iframe class="w-full h-60" src="https://www.youtube.com/embed/EixIyh1gshM" frameborder="0" allowfullscreen></iframe>
+                <p class="text-blue-400">What actually causes high cholesterol</p>
+            </div>
+        </div>
+
+        <div id="footer" class="text-gray-400 text-center mt-20">
+            <footer>&copy; Team SnapLearn</footer>
+        </div>
     </div>
+
+    
 </body>
 </html>
