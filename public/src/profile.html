@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Page</title>
+    <link rel="icon" type="image/x-icon" href="../icons/snaplearn-128p.png">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gradient-to-r from-neutral-950 to-neutral-900 text-white">
+    <!-- Header Section -->
+    <div id="head-image" class="flex justify-between items-center p-10">
+        <a href="./main.html">
+            <img src="../icons/transparent-messmaster.png" alt="Logo" class="w-32 sm:w-48">
+        </a>
+        <div class="bg-neutral-800 flex justify-around p-4 rounded shadow-md mb-4 flex-wrap gap-2 mx-auto w-full">
+            <a href="./home.html"><button class="font-semibold hover:cursor-pointer">Home</button></a>
+            <a href="./admin.html"><button class="hover:cursor-pointer" onclick="navigateTo('admin.html')">Admin</button></a>
+            <a href="./profile.html"><button class="text-blue-400 hover:cursor-pointer" onclick="navigateTo('profile.html')">Profile</button></a>
+        </div>
+    </div>
+  
+    <div class="flex flex-col items-center mt-24">
+        <div class="relative w-60 h-60 rounded-full overflow-hidden border-4 border-white cursor-pointer" onclick="document.getElementById('profile-input').click()">
+            <img id="profile-pic" alt="" class="w-full h-full object-cover">
+            <input type="file" id="profile-input" accept="image/*" class="hidden" onchange="loadProfileImage(event)">
+        </div>
+    </div>
+
+    <script>
+        function loadProfileImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-pic').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

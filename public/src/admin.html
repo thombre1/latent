@@ -6,6 +6,7 @@
     <title>Mess Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style>
         body {
             display: flex;
@@ -37,10 +38,13 @@
 </head>
 <body>
     <div class="sidebar">
-        <h4>Mess Admin</h4>
+        <a href="./home.html">
+            <img src="https://cdn-icons-png.flaticon.com/512/5690/5690080.png" alt="" class="w-12">
+        </a>
         <a href="#" onclick="showSection('dashboard')">Dashboard</a>
         <a href="#" onclick="showSection('manageMeals')">Manage Meals</a>
         <a href="#" onclick="showSection('complaints')">Complaints</a>
+        <a href="#" onclick="showSection('subscribers')">Subscribers</a>
         <a href="#">Reports</a>
     </div>
 
@@ -98,24 +102,100 @@
                 </thead>
                 <tbody id="complaintsTable">
                     <tr>
-                        <td>John Doe</td>
+                        <td>Rohit sachin patel</td>
                         <td>Food quality was not good today.</td>
                         <td>
                             <button class="btn btn-info btn-sm" onclick="reviewComplaint(this)">Review</button>
                             <button class="btn btn-danger btn-sm" onclick="deleteComplaint(this)">Delete</button>
                         </td>
+                        <tr>
+                            <td>Aditya Thombre</td>
+                            <td>Staff is not helpful.</td>
+                            <td>
+                                <button class="btn btn-info btn-sm" onclick="reviewComplaint(this)">Review</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteComplaint(this)">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paras Shrote</td>
+                            <td>Mess aaji aunty is rude.</td>
+                            <td>
+                                <button class="btn btn-info btn-sm" onclick="reviewComplaint(this)">Review</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteComplaint(this)">Delete</button>
+                            </td>
+                        </tr>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- Subscribers Section -->
+
+        <div id="subscribers" class="hidden">
+            <h2>Subscribers</h2>
+            <button class="btn btn-primary mb-2" onclick="addSubscriber()">Add Subscriber</button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Subscription Plan</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="subscribersTable">
+                    <tr>
+                        <td>Rohit Sachin Patel</td>
+                        <td>rohit@example.com</td>
+                        <td>9876543210</td>
+                        <td>Monthly</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editSubscriber(this)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteSubscriber(this)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Aditya Thombre</td>
+                        <td>aditya@example.com</td>
+                        <td>8765432109</td>
+                        <td>Quarterly</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editSubscriber(this)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteSubscriber(this)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Paras Shrote</td>
+                        <td>paras@example.com</td>
+                        <td>7654321098</td>
+                        <td>Monthly</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editSubscriber(this)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteSubscriber(this)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
     </div>
+
+    
+
+
+    <tr>
+                       
 
     <!-- JavaScript Section -->
     <script>
         function showSection(sectionId) {
+            // Hide all sections
             document.getElementById("dashboard").classList.add("hidden");
             document.getElementById("manageMeals").classList.add("hidden");
             document.getElementById("complaints").classList.add("hidden");
+            document.getElementById("subscribers").classList.add("hidden"); // Ensure this is hidden
+
+            // Show the selected section
             document.getElementById(sectionId).classList.remove("hidden");
         }
 
@@ -164,6 +244,45 @@
             }
         }
 
+        function addSubscriber() {
+            let name = prompt("Enter Subscriber Name:");
+            let email = prompt("Enter Email:");
+            let phone = prompt("Enter Phone Number:");
+            let plan = prompt("Enter Subscription Plan (Monthly/Quarterly/Yearly):");
+            
+            if (name && email && phone && plan) {
+                let table = document.getElementById("subscribersTable");
+                let row = table.insertRow();
+                row.innerHTML = `<td>${name}</td><td>${email}</td><td>${phone}</td><td>${plan}</td>
+                                 <td>
+                                    <button class="btn btn-warning btn-sm" onclick="editSubscriber(this)">Edit</button>
+                                    <button class="btn btn-danger btn-sm" onclick="deleteSubscriber(this)">Delete</button>
+                                 </td>`;
+            }
+        }
+
+        function editSubscriber(button) {
+            let row = button.closest("tr");
+            let newName = prompt("Edit Name:", row.cells[0].innerText);
+            let newEmail = prompt("Edit Email:", row.cells[1].innerText);
+            let newPhone = prompt("Edit Phone:", row.cells[2].innerText);
+            let newPlan = prompt("Edit Subscription Plan:", row.cells[3].innerText);
+            
+            if (newName && newEmail && newPhone && newPlan) {
+                row.cells[0].innerText = newName;
+                row.cells[1].innerText = newEmail;
+                row.cells[2].innerText = newPhone;
+                row.cells[3].innerText = newPlan;
+            }
+        }
+
+        function deleteSubscriber(button) {
+            if (confirm("Are you sure you want to delete this subscriber?")) {
+                button.closest("tr").remove();
+            }
+        }
+
+
         // Charts
         var ctx1 = document.getElementById('mealChart').getContext('2d');
         new Chart(ctx1, {
@@ -172,7 +291,7 @@
                 labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                 datasets: [{
                     label: 'Meals Served',
-                    data: [180, 175, 190, 200, 185, 195, 180],
+                    data: [180, 193, 190, 200, 185, 195, 180],
                     borderColor: 'blue',
                     fill: true
                 }]
@@ -186,7 +305,7 @@
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
                 datasets: [{
                     label: 'Complaints Received',
-                    data: [12, 9, 15, 10, 7],
+                    data: [12, 18, 15, 10, 7],
                     backgroundColor: 'red'
                 }]
             }
